@@ -31,7 +31,7 @@ app = Dash(
     external_stylesheets=[dbc.themes.SOLAR,
                           dbc.icons.BOOTSTRAP]
 )
-
+server = app.server
 
 app.layout = html.Div(
         dbc.Container(
