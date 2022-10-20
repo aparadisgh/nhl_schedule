@@ -25,15 +25,15 @@ GAME_TYPES = [
 ]
 
 # App Definition
-app = Dash(
+dash_app = Dash(
     name="Hockey Game Counter",
     title="Hockey Game Counter",
     external_stylesheets=[dbc.themes.SOLAR,
                           dbc.icons.BOOTSTRAP]
 )
-server = app.server
+app = dash_app.server
 
-app.layout = html.Div(
+dash_app.layout = html.Div(
         dbc.Container(
             id='app-container',
             children=[
@@ -122,7 +122,7 @@ app.layout = html.Div(
     )
 
 
-@app.callback(
+@dash_app.callback(
     Output(component_id='table-container', component_property='children'),
     Input('date-picker-range','start_date'),
     Input('date-picker-range','end_date'),
@@ -187,4 +187,4 @@ def update_table(start_date, end_date, game_type):
     return table
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8080, host='0.0.0.0')
+    dash_app.run_server(debug=True, port=8080, host='0.0.0.0')
